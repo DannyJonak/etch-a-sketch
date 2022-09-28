@@ -4,3 +4,16 @@ body {
     box-sizing: border-box;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.grid-box {
+    border: 1px solid black;
+
+}
