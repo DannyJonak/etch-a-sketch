@@ -11,6 +11,16 @@ body {
     border: 1px solid black;
 }
 
+.grid-box,
+.grid-box-fill {
+    background-color: transparent;
+}
+
 .grid-box {
     border: 1px solid rgb(214, 214, 214);
+}
+
+.eraser-down {
+    color: white;
+    background-color: blue;
 }
