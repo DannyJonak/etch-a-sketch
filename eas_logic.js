@@ -37,17 +37,32 @@ function removeGrid() {
     }
 }
 
+function clearGrid() {
+    removeGrid();
+    buildGrid(gridSize);
+    setupHover();
+}
+
+let gridSize = 16;
 const slider = document.querySelector('#grid-size-slider');
 slider.oninput = function () {
+                    gridSize = slider.value;
                     sizeText = document.querySelector('.gridsize-display');
                     sizeText.textContent = `${slider.value} x ${slider.value}`;
+                    removeGrid();
+                    buildGrid(gridSize);
+                    setupHover();
                 };
 
 slider.onchange = function () {
+                    gridSize = slider.value;
                     removeGrid();
-                    buildGrid(slider.value);
+                    buildGrid(gridSize);
                     setupHover();
                 };
+
+const clearBtn = document.querySelector('#clear-button');
+clearBtn.onclick = () => {clearGrid()};
 
 buildGrid();
 setupHover();
