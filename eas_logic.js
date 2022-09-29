@@ -40,11 +40,13 @@ function removeGrid() {
 function clearGrid() {
     removeGrid();
     buildGrid(gridSize);
-    setupHover();
+    setupHover(penColor);
 }
 
 let gridSize = 16;
+let penColor = 'black';
 const slider = document.querySelector('#grid-size-slider');
+
 slider.oninput = function () {
                     gridSize = slider.value;
                     sizeText = document.querySelector('.gridsize-display');
@@ -61,8 +63,16 @@ slider.onchange = function () {
                     setupHover();
                 };
 
+
 const clearBtn = document.querySelector('#clear-button');
 clearBtn.onclick = () => {clearGrid()};
+
+const colorPicker = document.querySelector('#pen-color');
+
+colorPicker.oninput = function () {
+                        penColor = colorPicker.value;
+                        setupHover(penColor);
+                    }
 
 buildGrid();
 setupHover();
