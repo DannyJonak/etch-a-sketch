@@ -19,11 +19,13 @@ function setupHover(color = 'black') {
     gridSquares.forEach((square) => {
         square.addEventListener('mousedown', (event) => {
             square.style.backgroundColor = color;
+            square.style.border = 0;
         })
         square.addEventListener('mouseover', (event) => {
             if (event.buttons === 1) {
                 event.preventDefault();
                 square.style.backgroundColor = color;
+                square.style.border = 0;
             };
         })
     })
