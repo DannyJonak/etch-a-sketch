@@ -4,11 +4,18 @@ body {
     box-sizing: border-box;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .grid {
     display: grid;
     width: 600px;
     height: 600px;
     border: 1px solid black;
+    box-shadow: 10px 10px;
 }
 
 .grid-box,
