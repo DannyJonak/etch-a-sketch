@@ -1,8 +1,8 @@
-function buildGrid(sideLength) {
+function buildGrid(sideLength = 16) {
 
     const grid = document.querySelector('.grid');
-    grid.setAttribute(`style', 'grid-template-rows = repeat(${sideLength}, 1fr);
-                        grid-template-columns = repeat(${sideLength}, 1fr)`);
+    grid.setAttribute('style', `grid-template-columns: repeat(${sideLength}, 1fr);
+                        grid-template-rows: repeat(${sideLength}, 1fr);`);
 
     for (let i = 0; i < sideLength * sideLength; i++) {
         const newBox = document.createElement('div');
