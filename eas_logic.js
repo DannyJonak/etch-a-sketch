@@ -3,6 +3,7 @@ function buildGrid(sideLength = 16) {
     const grid = document.querySelector('.grid');
     grid.setAttribute('style', `grid-template-columns: repeat(${sideLength}, 1fr);
                         grid-template-rows: repeat(${sideLength}, 1fr);`);
+    grid.setAttribute('draggable', 'false');
 
     for (let i = 0; i < sideLength * sideLength; i++) {
         const newBox = document.createElement('div');
@@ -28,6 +29,22 @@ function setupHover(color = 'black') {
     })
 }
 
+function clearGrid() {
+    const grid = document.querySelector('.grid');
+    while(grid.firstElementChild) {
+        const curBox = grid.firstElementChild;
+        grid.removeChild(curBox);
+    }
+}
 
-buildGrid(16);
+let gridSize = 16;
+const slider = document.querySelector('#grid-size-slider');
+slider.onchange = function () {
+                    gridSize = slider.value;
+                    clearGrid();
+                    buildGrid(gridSize);
+                    setupHover();
+                };
+
+buildGrid(gridSize);
 setupHover();
