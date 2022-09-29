@@ -29,7 +29,7 @@ function setupHover(color = 'black') {
     })
 }
 
-function clearGrid() {
+function removeGrid() {
     const grid = document.querySelector('.grid');
     while(grid.firstElementChild) {
         const curBox = grid.firstElementChild;
@@ -37,14 +37,17 @@ function clearGrid() {
     }
 }
 
-let gridSize = 16;
 const slider = document.querySelector('#grid-size-slider');
+slider.oninput = function () {
+                    sizeText = document.querySelector('.gridsize-display');
+                    sizeText.textContent = `${slider.value} x ${slider.value}`;
+                };
+
 slider.onchange = function () {
-                    gridSize = slider.value;
-                    clearGrid();
-                    buildGrid(gridSize);
+                    removeGrid();
+                    buildGrid(slider.value);
                     setupHover();
                 };
 
-buildGrid(gridSize);
+buildGrid();
 setupHover();
