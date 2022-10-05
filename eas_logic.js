@@ -8,6 +8,7 @@ function buildGrid(sideLength = 16) {
         const newBox = document.createElement('div');
         newBox.classList.add('grid-box');
         if (gridLinesOn) newBox.classList.add('gridline-box');
+        newBox.setAttribute('onmousedown', 'return false');
         grid.appendChild(newBox);
     }
 }
