@@ -58,7 +58,7 @@ function removeGrid() {
 function clearGrid() {
     removeGrid();
     buildGrid(gridSize);
-    setupHover(penColor);
+    if (!eraserOn) setupHover(penColor);
 }
 
 function toggleGridLines() {
@@ -84,7 +84,7 @@ slider.oninput = function () {
                     sizeText.textContent = `${slider.value} x ${slider.value}`;
                     removeGrid();
                     buildGrid(gridSize);
-                    setupHover(penColor);
+                    if (!eraserOn) setupHover(penColor);
                 };
 
 clearBtn.onclick = () => {clearGrid()};
