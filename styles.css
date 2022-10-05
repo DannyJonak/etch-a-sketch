@@ -4,6 +4,13 @@ body {
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    font-size: 48px;
+    padding: 32px;
+    font-style: oblique;
+}
+
 .main {
     display: flex;
     align-items: center;
@@ -42,6 +49,42 @@ body {
 .gridsize-display {
     display: inline-block;
 }
+
+.slidecontainer {
+    width: 100%;
+  }
+
+.slider {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: rgb(187, 187, 187);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.1s;
+    transition: opacity 0.1s;
+}
+
+.slider:hover {
+    opacity: 1;
+  }
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px; 
+    background: black; 
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px; 
+    height: 15px; 
+    background: black; 
+    cursor: pointer;
+  }
 
 button {
     background-color: white;
