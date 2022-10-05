@@ -8,24 +8,23 @@ function buildGrid(sideLength = 16) {
     for (let i = 0; i < sideLength * sideLength; i++) {
         const newBox = document.createElement('div');
         newBox.classList.add('grid-box');
+        if (gridLinesOn) newBox.classList.add('gridline-box');
         newBox.setAttribute('draggable', 'false');
         grid.appendChild(newBox);
     }
 }
 
 function setupHover(color = 'black') {
-    const gridSquares = document.querySelectorAll('.grid-box, .grid-box-fill');
+    const gridSquares = document.querySelectorAll('.grid-box');
 
     gridSquares.forEach((square) => {
         square.addEventListener('mousedown', (event) => {
-            square.setAttribute('class', 'grid-box-fill');
             square.style.backgroundColor = color;
             //square.style.border = 0;
         })
         square.addEventListener('mouseover', (event) => {
             if (event.buttons === 1) {
                 event.preventDefault();
-                square.setAttribute('class', 'grid-box-fill');
                 square.style.backgroundColor = color;
                 //square.style.border = 0;
             };
@@ -34,17 +33,15 @@ function setupHover(color = 'black') {
 }
 
 function removeHover() {
-    const gridSquares = document.querySelectorAll('.grid-box, .grid-box-fill');
+    const gridSquares = document.querySelectorAll('.grid-box');
 
     gridSquares.forEach((square) => {
         square.addEventListener('mousedown', (event) => {
-            square.setAttribute('class', 'grid-box');
             square.style.backgroundColor = 'transparent';
         })
         square.addEventListener('mouseover', (event) => {
             if (event.buttons === 1) {
                 event.preventDefault();
-                square.setAttribute('class', 'grid-box');
                 square.style.backgroundColor = 'transparent';
             };
         })
@@ -65,14 +62,22 @@ function clearGrid() {
     setupHover(penColor);
 }
 
+function toggleGridLines() {
+    const gridSquares = document.querySelectorAll('.grid-box');
+    gridSquares.forEach((square) => {square.classList.toggle('gridline-box');});
+
+}
+
 let gridSize = 16;
 let penColor = 'black';
 let eraserOn = false;
+let gridLinesOn = false;
 
 const slider = document.querySelector('#grid-size-slider');
 const eraser = document.querySelector('#eraser');
 const clearBtn = document.querySelector('#clear-button');
 const colorPicker = document.querySelector('#pen-color');
+const gridLines = document.querySelector('#toggle-grid')
 
 slider.oninput = function () {
                     gridSize = slider.value;
@@ -92,7 +97,7 @@ colorPicker.oninput = function () {
                     }
 
 eraser.addEventListener('click', () => {
-                                    eraser.classList.toggle('eraser-down');
+                                    eraser.classList.toggle('toggle-button');
                                     if (!eraserOn) {
                                         removeHover();
                                     } else {
@@ -100,6 +105,12 @@ eraser.addEventListener('click', () => {
                                     }
                                     eraserOn = !eraserOn;
                                 });
+
+gridLines.addEventListener('click', () => {
+    gridLines.classList.toggle('toggle-button');
+    toggleGridLines();
+    gridLinesOn = !gridLinesOn;
+});
 
 buildGrid();
 setupHover();
