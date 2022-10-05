@@ -9,23 +9,26 @@
     </head>
     <body>
         <div class = 'main'>
-            <div>
-                <div class="gridsize-display">16 x 16</div>
-                <div class="slider-container">
-                    <input type="range" min="1" max="64" value="16" class="slider" id="grid-size-slider" />
+            <div class="control-panel">
+                <div>
+                    <div>Grid Size</div>
+                    <div class="gridsize-display">16 x 16</div>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="64" value="16" class="slider" id="grid-size-slider" />
+                    </div>
                 </div>
-            </div>
-            <div>
-                <button id="clear-button">Clear Grid</button>
-            </div>
-            <div>
-                <button id="toggle-grid">Toggle Gridlines</button>
-            </div>
-            <div>
-                <input type="color" id="pen-color"/>
-            </div>
-            <div>
-                <button id="eraser">Toggle Eraser</button>
+                <div>
+                    <button id="clear-button">Clear Grid</button>
+                </div>
+                <div>
+                    <button id="toggle-grid">Toggle Gridlines</button>
+                </div>
+                <div>
+                    <input type="color" id="pen-color"/>
+                </div>
+                <div>
+                    <button id="eraser">Toggle Eraser</button>
+                </div>
             </div>
             <div class="grid" onmousedown="return false"></div>
         </div>

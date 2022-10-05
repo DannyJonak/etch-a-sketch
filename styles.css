@@ -6,8 +6,8 @@ body {
 
 .main {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .grid {
@@ -24,10 +24,23 @@ body {
 }
 
 .gridline-box {
-    border: 1px solid rgb(214, 214, 214);
+    border: 1px solid rgb(238, 238, 238);
 }
 
 .toggle-button {
     color: white;
     background-color: blue;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-start;
+    gap: 16px;
+    border: 1px solid black;
+    box-shadow: 5px 5px;
+    margin-right: 24px;
+    padding: 16px;
 }
