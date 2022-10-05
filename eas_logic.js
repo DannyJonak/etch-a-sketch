@@ -3,13 +3,11 @@ function buildGrid(sideLength = 16) {
     const grid = document.querySelector('.grid');
     grid.setAttribute('style', `grid-template-columns: repeat(${sideLength}, 1fr);
                         grid-template-rows: repeat(${sideLength}, 1fr);`);
-    grid.setAttribute('draggable', 'false');
 
     for (let i = 0; i < sideLength * sideLength; i++) {
         const newBox = document.createElement('div');
         newBox.classList.add('grid-box');
         if (gridLinesOn) newBox.classList.add('gridline-box');
-        newBox.setAttribute('draggable', 'false');
         grid.appendChild(newBox);
     }
 }
