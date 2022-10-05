@@ -90,7 +90,7 @@ slider.oninput = function () {
 clearBtn.onclick = () => {clearGrid()};
 
 colorPicker.oninput = function () {
-                        if (eraserOn) {eraser.classList.toggle('eraser-down'); eraserOn = !eraserOn}
+                        if (eraserOn) {eraser.classList.toggle('toggle-button'); eraserOn = !eraserOn}
                         penColor = colorPicker.value;
                         setupHover(penColor);
                     }
